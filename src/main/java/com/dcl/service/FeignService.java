@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import com.dcl.response.ApiResponse;
 
-@FeignClient(name = "PRODUCT-SERVICE", path="/product")
+@FeignClient(name = "PRODUCT-SERVICE", url="http://51.21.170.166:8085/product")
 public interface FeignService {
 
 	@GetMapping("/get")

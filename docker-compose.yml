@@ -1,0 +1,25 @@
+services:
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: order_db
+
+    ports:
+      - "3306:3306"
+
+  order-service:
+    build: .
+    image: order-service:1.0
+    container_name: order-service
+
+    ports:
+      - "8086:8086"
+
+    depends_on:
+      - mysql
+
+
